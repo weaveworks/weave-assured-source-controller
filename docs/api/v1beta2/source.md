@@ -138,6 +138,18 @@ string
 </tr>
 <tr>
 <td>
+<code>prefix</code><br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Prefix is for listing objects only with the specified prefix.</p>
+</td>
+</tr>
+<tr>
+<td>
 <code>secretRef</code><br>
 <em>
 <a href="https://pkg.go.dev/github.com/fluxcd/pkg/apis/meta#LocalObjectReference">
@@ -1418,6 +1430,18 @@ string
 <td>
 <em>(Optional)</em>
 <p>Region of the Endpoint where the BucketName is located in.</p>
+</td>
+</tr>
+<tr>
+<td>
+<code>prefix</code><br>
+<em>
+string
+</em>
+</td>
+<td>
+<em>(Optional)</em>
+<p>Prefix is for listing objects only with the specified prefix.</p>
 </td>
 </tr>
 <tr>
