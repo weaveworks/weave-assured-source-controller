@@ -135,4 +135,4 @@ jobs:
       digest: ${{ needs.release.outputs.image_digest }}
       registry-username: ${{ github.actor }}
     secrets:
-      registry-password: ${{ secrets.GHCR_TOKEN }}
+      registry-password: ${{ secrets.GITHUB_TOKEN }}
