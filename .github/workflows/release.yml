@@ -78,7 +78,6 @@ jobs:
         env:
           COSIGN_EXPERIMENTAL: 1
         run: |
-          cosign sign --yes weaveworks/${{ env.CONTROLLER }}@${{ steps.build-push.outputs.digest }}
           cosign sign --yes ghcr.io/weaveworks/${{ env.CONTROLLER }}@${{ steps.build-push.outputs.digest }}
       - name: Generate release artifacts
         if: startsWith(github.ref, 'refs/tags/v')
@@ -104,7 +103,7 @@ jobs:
           hashes=$(echo -E $ARTIFACTS | jq --raw-output '.[] | {name, "digest": (.extra.Digest // .extra.Checksum)} | select(.digest) | {digest} + {name} | join("  ") | sub("^sha256:";"")' | base64 -w0)
           echo "hashes=$hashes" >> $GITHUB_OUTPUT
           
-          image_url=weaveworks/${{ env.CONTROLLER }}:${{ steps.prep.outputs.version }}
+          image_url=ghcr.io/weaveworks/${{ env.CONTROLLER }}:${{ steps.prep.outputs.version }}
           echo "image_url=$image_url" >> $GITHUB_OUTPUT
           
           image_digest=${{ steps.build-push.outputs.digest }}
